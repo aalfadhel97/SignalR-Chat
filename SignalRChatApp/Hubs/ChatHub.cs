@@ -12,3 +12,4 @@ namespace SignalRChatApp.Hubs
         }
     }
 }
+ 
