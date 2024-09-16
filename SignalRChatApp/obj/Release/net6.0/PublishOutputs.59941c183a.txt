@@ -1,0 +1,9 @@
+C:\Users\40399\source\repos\SignalRChatApp\SignalRChatApp\obj\Release\net6.0\PubTmp\Out\SignalRChatApp.exe
+C:\Users\40399\source\repos\SignalRChatApp\SignalRChatApp\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\40399\source\repos\SignalRChatApp\SignalRChatApp\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\40399\source\repos\SignalRChatApp\SignalRChatApp\obj\Release\net6.0\PubTmp\Out\SignalRChatApp.dll
+C:\Users\40399\source\repos\SignalRChatApp\SignalRChatApp\obj\Release\net6.0\PubTmp\Out\SignalRChatApp.deps.json
+C:\Users\40399\source\repos\SignalRChatApp\SignalRChatApp\obj\Release\net6.0\PubTmp\Out\SignalRChatApp.runtimeconfig.json
+C:\Users\40399\source\repos\SignalRChatApp\SignalRChatApp\obj\Release\net6.0\PubTmp\Out\SignalRChatApp.pdb
+C:\Users\40399\source\repos\SignalRChatApp\SignalRChatApp\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\40399\source\repos\SignalRChatApp\SignalRChatApp\obj\Release\net6.0\PubTmp\Out\System.Net.WebSockets.WebSocketProtocol.dll
