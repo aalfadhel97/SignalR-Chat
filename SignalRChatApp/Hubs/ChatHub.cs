@@ -1,13 +1,17 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Timers;
 
 namespace SignalRChatApp.Hubs
 {
-
     public class ChatHub : Hub
     {
         // In-memory storage for chat messages
         private static List<string> _messages = new List<string>();
+
+        // Counter for connected clients
+        private static int _connectedClients = 0;
 
         // Timer to reset chat history every 24 hours
         private static System.Timers.Timer _resetTimer;
@@ -28,6 +32,22 @@ namespace SignalRChatApp.Hubs
         private static void ClearChatHistory()
         {
             _messages.Clear();
+        }
+
+        // Override OnConnectedAsync to increment the client counter
+        public override async Task OnConnectedAsync()
+        {
+            _connectedClients++;
+            await Clients.All.SendAsync("UpdateClientCount", _connectedClients);
+            await base.OnConnectedAsync();
+        }
+
+        // Override OnDisconnectedAsync to decrement the client counter
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+            _connectedClients--;
+            await Clients.All.SendAsync("UpdateClientCount", _connectedClients);
+            await base.OnDisconnectedAsync(exception);
         }
 
         public async Task SendMessage(string user, string message)

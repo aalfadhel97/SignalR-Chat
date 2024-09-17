@@ -9,6 +9,8 @@
  <input id="messageInput" type="text" placeholder="Enter a message">
  <button id="sendButton">Send</button>
  <ul id="messagesList"></ul>
+ <p id="clientCount">Clients connected: 0</p> <!-- Element to display the client count -->
+
  <script>
   const connection = new signalR.HubConnectionBuilder()
    .withUrl("/chathub")
@@ -19,6 +21,11 @@
    const li = document.createElement("li");
    li.textContent = message;
    document.getElementById("messagesList").appendChild(li);
+  });
+
+  // Update client count
+  connection.on("UpdateClientCount", (count) => {
+   document.getElementById("clientCount").textContent = `Clients connected: ${count}`;
   });
 
   // Start the connection and load chat history
@@ -42,4 +49,7 @@
   });
  </script>
 </body>
+
+
+
 </html>
