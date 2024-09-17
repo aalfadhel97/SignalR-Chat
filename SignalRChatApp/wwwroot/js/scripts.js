@@ -28,7 +28,6 @@ function getUserColor(username) {
 // Receive messages from the server
 connection.on("ReceiveMessage", (message) => {
     const li = document.createElement("li");
-    const timestamp = new Date().toLocaleString(); // Format to show date and time
 
     // Extract username from the message
     const [username, ...messageParts] = message.split(':');
@@ -49,7 +48,8 @@ connection.on("ReceiveMessage", (message) => {
     const messageSpan = document.createElement("span");
     messageSpan.textContent = userMessage;
 
-    // Create a span for the timestamp
+    // Create a span for the timestamp (time only)
+    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     const timestampSpan = document.createElement("span");
     timestampSpan.className = "timestamp";
     timestampSpan.textContent = timestamp;
@@ -86,7 +86,6 @@ document.getElementById("sendButton").addEventListener("click", () => {
         connection.invoke("SendMessage", currentUser, message).catch(err => console.error(err.toString()));
         // Clear input fields after sending the message
         document.getElementById("messageInput").value = ''; // Clear only the message input
-        // Removed the line that clears the username input
     } else {
         alert('Both name and message fields are required.');
     }
