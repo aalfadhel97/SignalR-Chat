@@ -68,7 +68,7 @@ connection.on("ReceiveMessage", (message) => {
 
 // Update client count
 connection.on("UpdateClientCount", (count) => {
-    document.getElementById("clientCount").textContent = `Clients connected: ${count}`;
+    document.getElementById("clientCount").textContent = `عدد المتصلين: ${count}`;
 });
 
 // Start the connection and load chat history
