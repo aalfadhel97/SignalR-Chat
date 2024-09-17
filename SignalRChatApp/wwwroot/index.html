@@ -9,28 +9,37 @@
  <input id="messageInput" type="text" placeholder="Enter a message">
  <button id="sendButton">Send</button>
  <ul id="messagesList"></ul>
+ <script>
+  const connection = new signalR.HubConnectionBuilder()
+   .withUrl("/chathub")
+   .build();
 
- <script>// Create a connection to the SignalR hub
-        const connection = new signalR.HubConnectionBuilder()
-            .withUrl("/chathub")
-            .build();
+  // Receive messages from the server
+  connection.on("ReceiveMessage", (message) => {
+   const li = document.createElement("li");
+   li.textContent = message;
+   document.getElementById("messagesList").appendChild(li);
+  });
 
-        // Receive message from the server
-        connection.on("ReceiveMessage", (user, message) => {
-            const msg = `${user}: ${message}`;
-            const li = document.createElement("li");
-            li.textContent = msg;
-            document.getElementById("messagesList").appendChild(li);
-        });
+  // Start the connection and load chat history
+  connection.start().then(() => {
+   connection.invoke("LoadChatHistory").catch(err => console.error(err.toString()));
+  }).catch(err => console.error(err.toString()));
 
-        // Start the connection
-        connection.start().catch(err => console.error(err.toString()));
+  // Send a new message
+  document.getElementById("sendButton").addEventListener("click", () => {
+   const user = document.getElementById("userInput").value.trim();
+   const message = document.getElementById("messageInput").value.trim();
 
-        // Send a message to the server
-        document.getElementById("sendButton").addEventListener("click", () => {
-            const user = document.getElementById("userInput").value;
-            const message = document.getElementById("messageInput").value;
-            connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
-        });</script>
+   // Check if user and message fields are not empty
+   if (user && message) {
+    connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
+    // Clear input fields after sending the message
+    document.getElementById("messageInput").value = '';
+   } else {
+    alert('Both name and message fields are required.');
+   }
+  });
+ </script>
 </body>
 </html>
