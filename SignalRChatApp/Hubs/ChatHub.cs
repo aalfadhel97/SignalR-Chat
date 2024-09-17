@@ -7,8 +7,7 @@ namespace SignalRChatApp.Hubs
 {
     public class ChatHub : Hub
     {
-        // In-memory storage for chat messages
-        private static List<string> _messages = new List<string>();
+        private static List<(string User, string Message, string Timestamp)> _messages = new List<(string, string, string)>();
 
         // Counter for connected clients
         private static int _connectedClients = 0;
@@ -50,22 +49,20 @@ namespace SignalRChatApp.Hubs
             await base.OnDisconnectedAsync(exception);
         }
 
-        public async Task SendMessage(string user, string message)
+        public async Task SendMessage(string user, string message, string timestamp)
         {
             // Store message in the list
-            var fullMessage = $"{user}: {message}";
-            _messages.Add(fullMessage);
+            _messages.Add((user, message, timestamp));
 
             // Send message to all connected clients
-            await Clients.All.SendAsync("ReceiveMessage", fullMessage);
+            await Clients.All.SendAsync("ReceiveMessage", user, message, timestamp);
         }
 
         public async Task LoadChatHistory()
         {
-            // Send existing chat history to the connecting client
-            foreach (var message in _messages)
+            foreach (var (user, message, timestamp) in _messages)
             {
-                await Clients.Caller.SendAsync("ReceiveMessage", message);
+                await Clients.Caller.SendAsync("ReceiveMessage", user, message, timestamp);
             }
         }
     }
