@@ -2,6 +2,7 @@
     .withUrl("/chathub")
     .build();
 
+let currentUser = ""; // Store the current user's name
 const userColors = {}; // Dictionary to store colors for each username
 
 // Function to generate a unique color based on the username
@@ -32,6 +33,11 @@ connection.on("ReceiveMessage", (message) => {
     // Extract username from the message
     const [username, ...messageParts] = message.split(':');
     const userMessage = messageParts.join(':').trim();
+
+    // Determine if the message is from the current user
+    if (username.trim() === currentUser) {
+        li.classList.add('user-message');
+    }
 
     // Create a span for the username
     const usernameSpan = document.createElement("span");
@@ -72,12 +78,12 @@ connection.start().then(() => {
 
 // Send a new message
 document.getElementById("sendButton").addEventListener("click", () => {
-    const user = document.getElementById("userInput").value.trim();
+    currentUser = document.getElementById("userInput").value.trim();
     const message = document.getElementById("messageInput").value.trim();
 
     // Check if user and message fields are not empty
-    if (user && message) {
-        connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
+    if (currentUser && message) {
+        connection.invoke("SendMessage", currentUser, message).catch(err => console.error(err.toString()));
         // Clear input fields after sending the message
         document.getElementById("messageInput").value = '';
     } else {

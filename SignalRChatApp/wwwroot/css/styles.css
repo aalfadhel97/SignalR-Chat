@@ -13,47 +13,52 @@ body {
 .chat-container {
     background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 500px;
+}
+
+/* Chat header */
+.chat-header {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
 }
 
 /* Input fields and button styling */
 .input-container {
     display: flex;
     gap: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 input[type="text"] {
     flex: 1;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 25px;
     font-size: 16px;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 20px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
     button:hover {
         background-color: #0056b3;
+        transform: translateY(-2px);
     }
-
-/* Place the button inside the container */
-.input-container button {
-    flex-shrink: 0;
-}
 
 /* Message list styling */
 #messagesList {
@@ -62,23 +67,28 @@ button {
     margin-bottom: 20px;
     max-height: 300px;
     overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
 }
 
-    /* Message bubble styling */
+    /* Message bubble styling for other users */
     #messagesList li {
-        padding: 10px;
-        margin: 5px 10px;
-        border-radius: 15px;
-        border: 1px solid #d0e7ff;
+        padding: 10px 15px;
+        margin: 10px;
+        border-radius: 20px;
         max-width: 80%;
         word-wrap: break-word;
         position: relative;
+        background-color: #e9f7ff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        clear: both;
     }
 
-/* User-specific color */
+/* Right align the user's own messages */
+.user-message {
+    background-color: #d1e7dd;
+    margin-left: auto;
+}
+
+/* Username styling */
 .username {
     font-weight: bold;
     margin-right: 5px;
@@ -98,5 +108,5 @@ button {
     font-weight: bold;
     text-align: center;
     color: #333;
-    margin-top: 10px;
+    margin-top: 15px;
 }
