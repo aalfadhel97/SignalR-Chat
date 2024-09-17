@@ -49,7 +49,7 @@ connection.on("ReceiveMessage", (message) => {
     messageSpan.textContent = userMessage;
 
     // Create a span for the timestamp (time only)
-    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    const timestamp = new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     const timestampSpan = document.createElement("span");
     timestampSpan.className = "timestamp";
     timestampSpan.textContent = timestamp;
