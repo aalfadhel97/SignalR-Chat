@@ -1,55 +1,26 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>SignalR Chat</title>
+ <!-- Link to the CSS file in the css folder -->
+ <link rel="stylesheet" href="css/styles.css">
+ <!-- SignalR Script -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
 </head>
 <body>
- <input id="userInput" type="text" placeholder="Enter your name">
- <input id="messageInput" type="text" placeholder="Enter a message">
- <button id="sendButton">Send</button>
- <ul id="messagesList"></ul>
- <p id="clientCount">Clients connected: 0</p> <!-- Element to display the client count -->
+ <div class="chat-container">
+  <div class="input-container">
+   <input id="userInput" type="text" placeholder="Enter your name">
+   <input id="messageInput" type="text" placeholder="Enter a message">
+   <button id="sendButton">Send</button>
+  </div>
+  <ul id="messagesList"></ul>
+  <p id="clientCount">Clients connected: 0</p>
+ </div>
 
- <script>
-  const connection = new signalR.HubConnectionBuilder()
-   .withUrl("/chathub")
-   .build();
-
-  // Receive messages from the server
-  connection.on("ReceiveMessage", (message) => {
-   const li = document.createElement("li");
-   li.textContent = message;
-   document.getElementById("messagesList").appendChild(li);
-  });
-
-  // Update client count
-  connection.on("UpdateClientCount", (count) => {
-   document.getElementById("clientCount").textContent = `Clients connected: ${count}`;
-  });
-
-  // Start the connection and load chat history
-  connection.start().then(() => {
-   connection.invoke("LoadChatHistory").catch(err => console.error(err.toString()));
-  }).catch(err => console.error(err.toString()));
-
-  // Send a new message
-  document.getElementById("sendButton").addEventListener("click", () => {
-   const user = document.getElementById("userInput").value.trim();
-   const message = document.getElementById("messageInput").value.trim();
-
-   // Check if user and message fields are not empty
-   if (user && message) {
-    connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
-    // Clear input fields after sending the message
-    document.getElementById("messageInput").value = '';
-   } else {
-    alert('Both name and message fields are required.');
-   }
-  });
- </script>
+ <!-- Link to the JavaScript file in the js folder -->
+ <script src="js/scripts.js"></script>
 </body>
-
-
-
 </html>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "njaoo8G0CL5SAD86Ds1Sz3vgBhMua5gPEvedbcGjlAg=",
+  "Hash": "VxlP2jxPfP0sGaJ7ndgRXnIk/WFky6rmlcjATVxggAo=",
   "Source": "SignalRChatApp",
   "BasePath": "_content/SignalRChatApp",
   "Mode": "Default",
@@ -68,6 +68,23 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\css\\styles.css",
+      "SourceId": "SignalRChatApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\",
+      "BasePath": "_content/SignalRChatApp",
+      "RelativePath": "css/styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
+    },
+    {
       "Identity": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\favicon.ico",
       "SourceId": "SignalRChatApp",
       "SourceType": "Discovered",
@@ -100,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\js\\scripts.js",
+      "SourceId": "SignalRChatApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\",
+      "BasePath": "_content/SignalRChatApp",
+      "RelativePath": "js/scripts.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\scripts.js"
     },
     {
       "Identity": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\js\\site.js",

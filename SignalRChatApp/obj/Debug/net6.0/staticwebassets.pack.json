@@ -9,12 +9,20 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
       "Id": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
       "Id": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\js\\scripts.js"
     },
     {
       "Id": "C:\\Users\\40399\\source\\repos\\SignalRChatApp\\SignalRChatApp\\wwwroot\\js\\site.js",
