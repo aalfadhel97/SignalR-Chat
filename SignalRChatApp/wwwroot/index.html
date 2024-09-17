@@ -1,20 +1,17 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignalR Chat</title>
-    <!-- Link to the CSS file in the css folder -->
+    <title>الشات العام</title>
+    <!-- Link to the CSS file -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- SignalR Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
 </head>
 <body>
     <div class="chat-container">
-        <!-- Header for the chat room -->
-        <div class="chat-header">
-            <h2>الشات العام</h2>
-        </div>
+        <h2>الشات العام</h2>
         <div class="input-container">
             <input id="userInput" type="text" placeholder="اسم المستخدم" maxlength="15">
             <textarea id="messageInput" placeholder="ادخل الرسالة" maxlength="250"></textarea>
@@ -24,7 +21,7 @@
         <p id="clientCount">عدد المتصلين: 0</p>
     </div>
 
-    <!-- Link to the JavaScript file in the js folder -->
+    <!-- Link to the JavaScript file -->
     <script src="js/scripts.js"></script>
 </body>
 </html>
