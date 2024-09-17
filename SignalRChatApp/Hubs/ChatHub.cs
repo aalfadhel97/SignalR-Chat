@@ -20,7 +20,7 @@ namespace SignalRChatApp.Hubs
         {
             _resetTimer = new System.Timers.Timer
             {
-                Interval = 24 * 60 * 60 * 1000, // 24 hours in milliseconds
+                Interval = 1 * 60 * 60 * 1000, // 24 hours in milliseconds
                 AutoReset = true,
                 Enabled = true
             };
