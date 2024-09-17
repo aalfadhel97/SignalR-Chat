@@ -4,16 +4,22 @@
 
 const userColors = {}; // Dictionary to store colors for each username
 
-// Function to generate a random color
-function getRandomColor() {
-    const colors = ['#007bff', '#28a745', '#dc3545', '#17a2b8', '#ffc107', '#6610f2'];
-    return colors[Math.floor(Math.random() * colors.length)];
+// Function to generate a unique color based on the username
+function generateColor(username) {
+    let hash = 0;
+    for (let i = 0; i < username.length; i++) {
+        hash = username.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const color = '#' + ((hash >> 24) & 0xFF).toString(16).padStart(2, '0') +
+        ((hash >> 16) & 0xFF).toString(16).padStart(2, '0') +
+        ((hash >> 8) & 0xFF).toString(16).padStart(2, '0');
+    return color;
 }
 
 // Function to get or assign a color for a user
 function getUserColor(username) {
     if (!userColors[username]) {
-        userColors[username] = getRandomColor();
+        userColors[username] = generateColor(username);
     }
     return userColors[username];
 }

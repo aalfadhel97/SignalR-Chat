@@ -50,6 +50,11 @@ button {
         background-color: #0056b3;
     }
 
+/* Place the button inside the container */
+.input-container button {
+    flex-shrink: 0;
+}
+
 /* Message list styling */
 #messagesList {
     list-style-type: none;
