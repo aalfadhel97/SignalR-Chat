@@ -28,7 +28,7 @@ function getUserColor(username) {
 // Receive messages from the server
 connection.on("ReceiveMessage", (message) => {
     const li = document.createElement("li");
-    const timestamp = new Date().toLocaleTimeString(); // Get current time
+    const timestamp = new Date().toLocaleString(); // Format to show date and time
 
     // Extract username from the message
     const [username, ...messageParts] = message.split(':');
@@ -85,7 +85,8 @@ document.getElementById("sendButton").addEventListener("click", () => {
     if (currentUser && message) {
         connection.invoke("SendMessage", currentUser, message).catch(err => console.error(err.toString()));
         // Clear input fields after sending the message
-        document.getElementById("messageInput").value = '';
+        document.getElementById("messageInput").value = ''; // Clear only the message input
+        // Removed the line that clears the username input
     } else {
         alert('Both name and message fields are required.');
     }

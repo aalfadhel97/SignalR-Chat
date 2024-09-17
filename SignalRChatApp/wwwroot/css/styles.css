@@ -75,6 +75,13 @@ textarea {
         box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
     }
 
+    /* Placeholder text style */
+    input::placeholder,
+    textarea::placeholder {
+        color: #aaa;
+        opacity: 1; /* Make placeholder fully visible */
+    }
+
 /* Button styling */
 button {
     padding: 12px 20px;
@@ -92,6 +99,12 @@ button {
     button:hover {
         background-color: #0056b3;
         transform: translateY(-2px);
+    }
+
+    /* Button click effect */
+    button:active {
+        transform: scale(0.95);
+        background-color: #004085;
     }
 
 /* Message list styling */
@@ -112,7 +125,7 @@ button {
         word-wrap: break-word;
         position: relative;
         background-color: #e9f7ff;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Added shadow to bubbles */
         clear: both;
     }
 
