@@ -2,19 +2,49 @@
     .withUrl("/chathub")
     .build();
 
+const userColors = {}; // Dictionary to store colors for each username
+
+// Function to generate a random color
+function getRandomColor() {
+    const colors = ['#007bff', '#28a745', '#dc3545', '#17a2b8', '#ffc107', '#6610f2'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// Function to get or assign a color for a user
+function getUserColor(username) {
+    if (!userColors[username]) {
+        userColors[username] = getRandomColor();
+    }
+    return userColors[username];
+}
+
 // Receive messages from the server
 connection.on("ReceiveMessage", (message) => {
     const li = document.createElement("li");
     const timestamp = new Date().toLocaleTimeString(); // Get current time
 
-    li.textContent = message;
+    // Extract username from the message
+    const [username, ...messageParts] = message.split(':');
+    const userMessage = messageParts.join(':').trim();
+
+    // Create a span for the username
+    const usernameSpan = document.createElement("span");
+    usernameSpan.className = "username";
+    usernameSpan.textContent = `${username}: `;
+    usernameSpan.style.color = getUserColor(username); // Assign color
+
+    // Create a span for the actual message
+    const messageSpan = document.createElement("span");
+    messageSpan.textContent = userMessage;
 
     // Create a span for the timestamp
     const timestampSpan = document.createElement("span");
     timestampSpan.className = "timestamp";
     timestampSpan.textContent = timestamp;
 
-    // Append the timestamp to the message
+    // Append the username, message, and timestamp to the list item
+    li.appendChild(usernameSpan);
+    li.appendChild(messageSpan);
     li.appendChild(timestampSpan);
 
     document.getElementById("messagesList").appendChild(li);

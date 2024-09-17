@@ -46,9 +46,9 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
+    button:hover {
+        background-color: #0056b3;
+    }
 
 /* Message list styling */
 #messagesList {
@@ -62,16 +62,16 @@ button:hover {
     background-color: #f9f9f9;
 }
 
-/* Message bubble styling */
-#messagesList li {
-    padding: 10px;
-    margin: 5px 10px;
-    border-radius: 15px;
-    border: 1px solid #d0e7ff;
-    max-width: 80%;
-    word-wrap: break-word;
-    position: relative;
-}
+    /* Message bubble styling */
+    #messagesList li {
+        padding: 10px;
+        margin: 5px 10px;
+        border-radius: 15px;
+        border: 1px solid #d0e7ff;
+        max-width: 80%;
+        word-wrap: break-word;
+        position: relative;
+    }
 
 /* User-specific color */
 .username {
