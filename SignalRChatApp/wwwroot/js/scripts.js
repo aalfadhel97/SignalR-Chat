@@ -5,8 +5,23 @@
 // Receive messages from the server
 connection.on("ReceiveMessage", (message) => {
     const li = document.createElement("li");
+    const timestamp = new Date().toLocaleTimeString(); // Get current time
+
     li.textContent = message;
+
+    // Create a span for the timestamp
+    const timestampSpan = document.createElement("span");
+    timestampSpan.className = "timestamp";
+    timestampSpan.textContent = timestamp;
+
+    // Append the timestamp to the message
+    li.appendChild(timestampSpan);
+
     document.getElementById("messagesList").appendChild(li);
+
+    // Auto-scroll to the latest message
+    const messagesList = document.getElementById("messagesList");
+    messagesList.scrollTop = messagesList.scrollHeight;
 });
 
 // Update client count
